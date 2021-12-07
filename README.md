@@ -1,2 +1,1 @@
-# COMPREHENSIVE-ANALYSIS-OF-OBSTRUCTIVE-SLEEP-APNEA-FROM-SINGLE-LEAD-ECG
-A COMPREHENSIVE ANALYSIS OF SLEEP APNEA
+# Obstructive Sleep Apnea Detection from Single-Lead ECG: A Comprehensive Analysis of Machine Learning and Deep Learning Algorithms
