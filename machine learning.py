@@ -50,8 +50,8 @@ clf10 =  LogisticRegression(multi_class='multinomial', random_state=1)
 clf11 = AdaBoostClassifier()
 clf12 = GaussianNB()
 clf = VotingClassifier(
-   estimators=[('C1',clf1),('C2',clf2),('C3',clf3),('C1',clf4),('C2',clf5),('C3',clf6),
-               ('C1',clf7),('C2',clf8),('C3',clf9),('C1',clf10),('C2',clf11),('C3',clf12)],
+   estimators=[('C1',clf1),('C2',clf2),('C3',clf3),('C4',clf4),('C5',clf5),('C6',clf6),
+               ('C7',clf7),('C8',clf8),('C9',clf9),('C10',clf10),('C11',clf11),('C12',clf12)],
  voting='hard')
 #------------------------------------------------------------------------------
 # OUR DATASET IS IMBALANCED SO, WE USED STRATIFIED K-FOLD FOR BALANCING IT
