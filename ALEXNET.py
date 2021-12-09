@@ -145,4 +145,3 @@ if __name__ == "__main__":
      SN.append(sn * 100)
      SP.append(sp * 100)
      F2.append(f2 * 100)
-print("acc: {}, sn: {}, sp: {}, F:{}".format(acc, sn, sp,f2))
