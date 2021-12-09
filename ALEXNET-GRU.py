@@ -128,7 +128,7 @@ if __name__ == "__main__":
      history = model.fit(X1, Y1, batch_size=128, epochs=100, validation_data=(x_val, y_val),
                         callbacks=[callback1,lr_scheduler])
     
-     model.save(os.path.join("model.KF_AlexNet_GRU.h5"))
+     model.save(os.path.join("model.AlexNet_GRU.h5"))
      
      loss, accuracy = model.evaluate(X[test], Y[test]) 
 
