@@ -67,7 +67,7 @@ F2=[]
 # TRAIN, TEST SPLIT: 
 for train, test in kfold.split(X, Y):
 
-     # TRAINING: PRE-PROCESSING CONSIST OF MIN-MAX NORMALIZATION, PCA DIMENSION REDUCTIO   
+     # TRAINING: PRE-PROCESSING CONSIST OF MIN-MAX NORMALIZATION, PCA DIMENSION REDUCTION   
      scaler = preprocessing.MinMaxScaler().fit(X[train])
      X_train_transformed = scaler.transform(X[train])
      pc= PCA(n_components=0.98,svd_solver = 'full')
