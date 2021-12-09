@@ -9,7 +9,7 @@ import pickle
 import numpy as np
 import os
 from keras.callbacks import LearningRateScheduler,EarlyStopping
-from keras.layers import Dense,Flatten,MaxPooling2D,Conv2D,,Permute,Reshape,Bidirectional,LSTM
+from keras.layers import Dense,Flatten,MaxPooling2D,Conv2D,Permute,Reshape,Bidirectional,LSTM
 from keras.regularizers import l2
 from scipy.interpolate import splev, splrep
 from sklearn.model_selection import train_test_split
@@ -132,7 +132,7 @@ if __name__ == "__main__":
      history = model.fit(X1, Y1, batch_size=128, epochs=100, validation_data=(x_val, y_val),
                         callbacks=[callback1,lr_scheduler])
     
-     model.save(os.path.join("model.KF_AlexNet_LSTM.h5"))
+     model.save(os.path.join("model.VGG16.h5"))
      
      loss, accuracy = model.evaluate(X[test], Y[test]) 
 
