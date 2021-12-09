@@ -2,7 +2,7 @@
 ## SLEEP APNEA DETECTION: COMPREHENSIVE ANALYSIS OF MACHINE LEARNING AND DEEP LEARNING METHODS
                                     ## WRITTEN BY: M.BAHRAMI
                                         ## DATE: 12-6-2021
-                                        ## MODEL: VGG16
+                                        ## MODEL: Hybrid model of VGG16-BiLSTM
 ##-----------------------------------------------------------------------------
 #IMPORT LIBRARIES    
 import pickle
@@ -132,7 +132,7 @@ if __name__ == "__main__":
      history = model.fit(X1, Y1, batch_size=128, epochs=100, validation_data=(x_val, y_val),
                         callbacks=[callback1,lr_scheduler])
     
-     model.save(os.path.join("model.VGG16.h5"))
+     model.save(os.path.join("model.VGG16-BiLSTM.h5"))
      
      loss, accuracy = model.evaluate(X[test], Y[test]) 
 
