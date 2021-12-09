@@ -89,6 +89,7 @@ def create_model():
     return model
 
 #------------------------------------------------------------------------------
+# Define learning rate schedule for preventing overfitting in deep learning methods:
 def lr_schedule(epoch, lr):
     if epoch > 30 and \
             (epoch - 1) % 10 == 0:
@@ -111,21 +112,23 @@ if __name__ == "__main__":
     SN=[]
     SP=[]
     F2=[]
+    # separate train& test and then compile model
     for train, test in kfold.split(X, Y.argmax(1)):
      model = create_model()
 
      
      model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['accuracy'])
+     # define callback for early stopping:
      lr_scheduler = LearningRateScheduler(lr_schedule)
-     
      callback1 = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
      
+     #10% of Data used for validation:
      X1,x_val,Y1,y_val=train_test_split(X[train],Y[train],test_size=0.10)
      
      history = model.fit(X1, Y1, batch_size=128, epochs=100, validation_data=(x_val, y_val),
                         callbacks=[callback1,lr_scheduler])
+    
      model.save(os.path.join("model.KF_AlexNet_GRU.h5"))
-     
      
      loss, accuracy = model.evaluate(X[test], Y[test]) 
 
@@ -133,7 +136,7 @@ if __name__ == "__main__":
      
      y_predict= np.argmax(y_score, axis=-1)
      y_training = np.argmax(Y[test], axis=-1)
-     
+     # Confusion matrix:
      from sklearn.metrics import confusion_matrix
      from sklearn.metrics import f1_score
      C = confusion_matrix(y_training, y_predict, labels=(1, 0))
