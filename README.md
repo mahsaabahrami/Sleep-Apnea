@@ -33,3 +33,7 @@ References:
 
 1- hrvanalysis package for feature extration: https://github.com/Aura-healthcare/hrv-analysis
 
+2- scikit-learn package for machine learning: Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011. https://scikit-learn.org/stable/
+
+3- keras for deep learning: https://keras.io/  
+
