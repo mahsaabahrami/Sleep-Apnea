@@ -8,8 +8,8 @@
 import pickle
 import numpy as np
 import os
-from keras.callbacks import LearningRateScheduler,EarlyStopping, Bidirectional,LSTM
-from keras.layers import Dense,
+from keras.callbacks import LearningRateScheduler,EarlyStopping
+from keras.layers import Dense, Bidirectional,LSTM
 from keras.regularizers import l2
 from scipy.interpolate import splev, splrep
 from sklearn.model_selection import train_test_split
