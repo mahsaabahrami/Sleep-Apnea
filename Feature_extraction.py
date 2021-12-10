@@ -6,8 +6,8 @@ from scipy.stats import kurtosis
 from scipy.stats import skew
 import numpy as np
 from entropy import *
-base_dir =  r'''D:\apnea-ecg-database-1.0.0'''
-with open(os.path.join(base_dir, "Detection_ML_ECG_TIM.pkl"), 'rb') as f: # read preprocessing result
+
+with open(os.path.join("Detection_ML_ECG_TIM.pkl"), 'rb') as f: # read preprocessing result
     apnea_ecg = pickle.load(f)
     x = []
     X, Y = apnea_ecg["X"], apnea_ecg["Y"]
