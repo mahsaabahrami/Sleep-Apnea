@@ -1,8 +1,8 @@
 #------------------------------------------------------------------------------
 # OBSTRUCTIVE SLEEP APNEA DETECTION FROM SINGLE-LEAD ECG: COMPREHENSIVE ANALYSIS OF MACHINE LEARNING
-                                            # WRITTEN BY: M. BAHRAMI
+                                           
                                             # DATE: 2021
-                                 # K. N. TOOSI UNIVERSTIY OF TECHNOLOGY 
+                                    # Machine learning models   
 # -----------------------------------------------------------------------------
 # IMPORT LIBRARIES:
 # WE USED SCIKIT-LEARN PACKAGE FOR IMPLIMENTING MACHINE LEARNING METHODS:
