@@ -1,6 +1,6 @@
 ##----------------------------------------------------------------------------      
 ## SLEEP APNEA DETECTION: COMPREHENSIVE ANALYSIS OF MACHINE LEARNING AND DEEP LEARNING METHODS
-                                    ## WRITTEN BY: M.BAHRAMI
+                                    
                                         ## DATE: 12-6-2021
                                          ## MODEL: BiLSTM
 ##-----------------------------------------------------------------------------
@@ -8,7 +8,7 @@
 import pickle
 import numpy as np
 import os
-from keras.callbacks import LearningRateScheduler,EarlyStopping,GlobalMaxPooling1D, Bidirectional,LSTM
+from keras.callbacks import LearningRateScheduler,EarlyStopping, Bidirectional,LSTM
 from keras.layers import Dense,
 from keras.regularizers import l2
 from scipy.interpolate import splev, splrep
@@ -61,8 +61,8 @@ def create_model():
     model.add(Bidirectional(LSTM(180, return_sequences=True), input_shape=(1,360)))
     model.add(Bidirectional(LSTM(90, return_sequences=True)))
     model.add(Bidirectional(LSTM(45, return_sequences=True)))    
-    model.add(GlobalMaxPooling1D())
-    #model.add(Flatten())
+    
+    model.add(Flatten())
     model.add(Dense(7, activation="relu"))
     model.add(Dense(2, activation="softmax"))
     return model
