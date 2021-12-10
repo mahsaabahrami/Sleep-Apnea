@@ -1,6 +1,6 @@
 ##----------------------------------------------------------------------------      
 ## SLEEP APNEA DETECTION: COMPREHENSIVE ANALYSIS OF MACHINE LEARNING AND DEEP LEARNING METHODS
-                                    ## WRITTEN BY: M.BAHRAMI
+                                   
                                         ## DATE: 12-6-2021
                                 ## MODEL: HYBRID MODEL OF ZFNet-GRU
 ##-----------------------------------------------------------------------------
