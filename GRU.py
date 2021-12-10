@@ -1,6 +1,6 @@
 ##----------------------------------------------------------------------------      
 ## SLEEP APNEA DETECTION: COMPREHENSIVE ANALYSIS OF MACHINE LEARNING AND DEEP LEARNING METHODS
-                                    ## WRITTEN BY: M.BAHRAMI
+                                    
                                         ## DATE: 12-6-2021
                                          ## MODEL: GRU
 ##-----------------------------------------------------------------------------
@@ -8,8 +8,8 @@
 import pickle
 import numpy as np
 import os
-from keras.callbacks import LearningRateScheduler,EarlyStopping,GlobalMaxPooling1D,GRU
-from keras.layers import Dense,
+from keras.callbacks import LearningRateScheduler,EarlyStopping
+from keras.layers import Dense, GRU,Flatten
 from keras.regularizers import l2
 from scipy.interpolate import splev, splrep
 from sklearn.model_selection import train_test_split
@@ -61,8 +61,8 @@ def create_model():
     model.add(GRU(180, return_sequences=True), input_shape=(1,360))
     model.add(GRU(90, return_sequences=True))
     model.add(GRU(45, return_sequences=True))    
-    model.add(GlobalMaxPooling1D())
-    #model.add(Flatten())
+  
+    model.add(Flatten())
     model.add(Dense(7, activation="relu"))
     model.add(Dense(2, activation="softmax"))
     return model
