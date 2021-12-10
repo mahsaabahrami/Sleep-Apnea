@@ -50,7 +50,7 @@ def load_data():
     
     
     x = np.expand_dims(x,1)
-    x_final=np.array(x, dtype="float32").transpose((0,3,1,2))
+    x_final=np.array(x, dtype="float32").transpose((0,3,2,1))
     
     
     return x_final, Y
@@ -58,7 +58,7 @@ def load_data():
 # CREAT DEEP LEARNING MODEL
 def create_model():
     model=Sequential()
-    model.add(GRU(180, return_sequences=True), input_shape=(1,360))
+    model.add(GRU(180, return_sequences=True, input_shape=(1,360)))
     model.add(GRU(90, return_sequences=True))
     model.add(GRU(45, return_sequences=True))    
   
@@ -90,6 +90,8 @@ if __name__ == "__main__":
     SN=[]
     SP=[]
     F2=[]
+    X = np.concatenate((X[:,:180,0,:],X[:,:180,1,:]),axis=1)
+    X=X.transpose((0,2,1))
     for train, test in kfold.split(X, Y.argmax(1)):
      model = create_model()
 
