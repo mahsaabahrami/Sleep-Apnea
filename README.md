@@ -15,20 +15,21 @@ For running each deep learning models, open the model and run it! and for machin
 You can also find and use all deep models in Deep_MODELS.py class, which can be used in other applications. 
 
 Requirements:
-Scikit-learn
 
-hrvanalysis
+1-scikit-learn
 
-numpy
+2-hrvanalysis
 
-keras
+3-numpy
 
-tensorflow
+4-keras
 
-scipy
+5-tensorflow
+
+6-scipy
 
 
 References:
 
-hrvanalysis package for feature extration: https://github.com/Aura-healthcare/hrv-analysis
+1- hrvanalysis package for feature extration: https://github.com/Aura-healthcare/hrv-analysis
 
