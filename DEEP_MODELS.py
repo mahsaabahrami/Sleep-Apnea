@@ -1,8 +1,8 @@
 #------------------------------------------------------------------------------------------------
 # OBSTRUCTIVE SLEEP APNEA DETECTION FROM SINGLE-LEAD ECG: COMPREHENSIVE ANALYSIS OF DEEP LEARNING
-                                            # WRITTEN BY: M. BAHRAMI
+                                           
                                             # DATE: 2021
-                                  # K. N. TOOSI UNIVERSTIY OF TECHNOLOGY
+                                  
 # ------------------------------------------------------------------------------------------------
 # IMPORT LIBRARIES:
 import pickle
