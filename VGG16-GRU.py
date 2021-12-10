@@ -9,7 +9,7 @@ import pickle
 import numpy as np
 import os
 from keras.callbacks import LearningRateScheduler,EarlyStopping
-from keras.layers import Dense,Flatten,MaxPooling2D,Conv2D,,Permute,Reshape,GRU
+from keras.layers import Dense,Flatten,MaxPooling2D,Conv2D,Permute,Reshape,GRU
 from keras.regularizers import l2
 from scipy.interpolate import splev, splrep
 from sklearn.model_selection import train_test_split
@@ -84,7 +84,7 @@ def create_model(weight=1e-3):
     model.add(Permute((2,1,3)))
     model.add(Reshape((1,7*512))) 
 
-   model.add(GRU(512, return_sequences=True))
+    model.add(GRU(512, return_sequences=True))
     
     model.add(Flatten())
     model.add(Dense(84, activation="relu"))
