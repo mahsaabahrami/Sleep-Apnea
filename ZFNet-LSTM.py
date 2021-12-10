@@ -9,7 +9,7 @@ import pickle
 import numpy as np
 import os
 from keras.callbacks import LearningRateScheduler,EarlyStopping
-from keras.layers import Dense,Flatten,MaxPooling2D,Conv2D,BatchNormalization,LSTM
+from keras.layers import Dense,Flatten,MaxPooling2D,Conv2D,BatchNormalization,LSTM,Permute,Reshape
 from keras.regularizers import l2
 from scipy.interpolate import splev, splrep
 from sklearn.model_selection import train_test_split
