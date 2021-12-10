@@ -83,7 +83,7 @@ def create_model(weight=1e-3):
     
     
     model.add(Flatten())
-    model.add(Dense(512, activation="relu"))
+    model.add(Dense(585, activation="relu"))
 
     model.add(Dense(2, activation="softmax"))
     return model
