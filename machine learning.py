@@ -36,20 +36,20 @@ Y= dataset[:,30].astype('float32')   # LABLES
 #------------------------------------------------------------------------------
 # CLF: CLASSIFIERS
 # WE IMPLIMENTED 14 MACHINE LEARNING METHODS
-
-clf1 = LinearDiscriminantAnalysis(solver='svd')
-clf2 = QuadraticDiscriminantAnalysis(tol=8.30E-4)
+# We computed the best parameters on validation set:
+clf1 = LinearDiscriminantAnalysis(solver='svd',tol=1e-4)
+clf2 = QuadraticDiscriminantAnalysis(tol=8.30e-4)
 clf3 = svm.SVC(kernel='rbf', C=252, gamma=0.75)
-clf4 = KNeighborsClassifier(n_neighbors=11, metric='manhattan',leaf_size=70)
+clf4 = KNeighborsClassifier(n_neighbors=11, metric='manhattan',leaf_size=70,p=1)
 clf5= RandomForestClassifier(n_estimators=90, max_depth=11)
-clf6= DecisionTreeClassifier(max_depth=5)
-clf7= ExtraTreesClassifier(n_estimators=80, max_depth=28)
-clf8= MLPClassifier(hidden_layer_sizes=(50),activation='relu',max_iter=500)
+clf6= DecisionTreeClassifier(max_depth=5,splitter='best',criterion = 'gini')
+clf7= ExtraTreesClassifier(n_estimators=80, max_depth=28,min_samples_split = 2,criterion = 'gini')
+clf8= MLPClassifier(hidden_layer_sizes=(50),activation='relu',max_iter=500,solver='adam', alpha=0.0001,learning_rate=0.001,tol=1e-4)
 clf9 = GradientBoostingClassifier(n_estimators=80, max_depth=24,subsample = 0.59, criterion = 'mse',loss= 'exponential')
-clf10 = LogisticRegression(C=95.78)
-clf11 = AdaBoostClassifier(n_estimators=70,learning_rate=0.39)
+clf10 = LogisticRegression(solver='lbfgs',C=95.78,tol=1e-4, penalty='l2')
+clf11 = AdaBoostClassifier(n_estimators=70,learning_rate=0.39, algorithm='SAMME.R')
 clf12 = GaussianNB(var_smoothing=0.00946)
-clf13 = GaussianProcessClassifier(max_iter_predict=3,warm_start= True)
+clf13 = GaussianProcessClassifier(kernel='rbf',max_iter_predict=3,optimizer='fmin_l_bfgs_b',warm_start= True)
 clf = VotingClassifier(
    estimators=[('C1',clf1),('C2',clf2),('C3',clf3),('C4',clf4),('C5',clf5),('C6',clf6),
                ('C7',clf7),('C8',clf8),('C9',clf9),('C10',clf10),('C11',clf11),('C12',clf12),('C13',clf13)],
