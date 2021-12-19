@@ -24,6 +24,7 @@ from sklearn.ensemble import  VotingClassifier
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.model_selection import StratifiedKFold
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.gaussian_process import GaussianProcessClassifier
 #------------------------------------------------------------------------------
 # LOAD DATASET:
     # WE PRE-PROCESSED OUR DATA AND EXTRACTED 30 FEATURES FROM EACH SEGMENTS OF ECG SIGNAL
@@ -34,24 +35,24 @@ X = dataset[:,:30].astype('float32') # FEATURES
 Y= dataset[:,30].astype('float32')   # LABLES
 #------------------------------------------------------------------------------
 # CLF: CLASSIFIERS
-# WE IMPLIMENTED 13 MACHINE LEARNING METHODS
-# HYPER-PARAMETERS OF MACHINE LEARNING METHODS WERE COMPUTED WITH TRIAL AND ERROR
+# WE IMPLIMENTED 14 MACHINE LEARNING METHODS
 
-clf1 = LinearDiscriminantAnalysis()
-clf2 = QuadraticDiscriminantAnalysis()
-clf3 = svm.SVC(kernel='linear', C=1)
-clf4 = KNeighborsClassifier(n_neighbors=15)
-clf5= RandomForestClassifier(max_depth=10, random_state=0)
-clf6= DecisionTreeClassifier(max_depth=5, min_samples_split=5,random_state=1)
-clf7= ExtraTreesClassifier(n_estimators=20, max_depth=15, min_samples_split=2, random_state=1)
-clf8= MLPClassifier(solver='adam', alpha=1e-5,hidden_layer_sizes=(10, 2), random_state=0)
-clf9 =  GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)
-clf10 =  LogisticRegression(multi_class='multinomial', random_state=1)
-clf11 = AdaBoostClassifier()
-clf12 = GaussianNB()
+clf1 = LinearDiscriminantAnalysis(solver='svd')
+clf2 = QuadraticDiscriminantAnalysis(tol=8.30E-4)
+clf3 = svm.SVC(kernel='rbf', C=252, gamma=0.75)
+clf4 = KNeighborsClassifier(n_neighbors=11, metric='manhattan',leaf_size=70)
+clf5= RandomForestClassifier(n_estimators=90, max_depth=11)
+clf6= DecisionTreeClassifier(max_depth=5)
+clf7= ExtraTreesClassifier(n_estimators=80, max_depth=28)
+clf8= MLPClassifier(hidden_layer_sizes=(50),activation='relu',max_iter=500)
+clf9 = GradientBoostingClassifier(n_estimators=80, max_depth=24,subsample = 0.59, criterion = 'mse',loss= 'exponential')
+clf10 = LogisticRegression(C=95.78)
+clf11 = AdaBoostClassifier(n_estimators=70,learning_rate=0.39)
+clf12 = GaussianNB(var_smoothing=0.00946)
+clf13 = GaussianProcessClassifier(max_iter_predict=3,warm_start= True)
 clf = VotingClassifier(
    estimators=[('C1',clf1),('C2',clf2),('C3',clf3),('C4',clf4),('C5',clf5),('C6',clf6),
-               ('C7',clf7),('C8',clf8),('C9',clf9),('C10',clf10),('C11',clf11),('C12',clf12)],
+               ('C7',clf7),('C8',clf8),('C9',clf9),('C10',clf10),('C11',clf11),('C12',clf12),('C13',clf13)],
  voting='hard')
 #------------------------------------------------------------------------------
 # OUR DATASET IS IMBALANCED SO, WE USED STRATIFIED K-FOLD FOR BALANCING IT
@@ -73,11 +74,11 @@ for train, test in kfold.split(X, Y):
      pc= PCA(n_components=0.98,svd_solver = 'full')
      pca=pc.fit(X_train_transformed)
      X_pCA=pca.transform(X_train_transformed)
-     clf2.fit(X_pCA, Y[train])
+     clf.fit(X_pCA, Y[train])
      # TESTING:
      X_test_transformed = scaler.transform(X[test])
      X_test_PCA=pca.transform(X_test_transformed)
-     y_score = clf2.predict(X_test_PCA)
+     y_score = clf.predict(X_test_PCA)
      # COMPUTE CONFUSION MATRIX: 
      from sklearn.metrics import f1_score
      C = confusion_matrix(Y[test], y_score, labels=(1, 0))
