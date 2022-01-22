@@ -14,7 +14,11 @@ For running each deep learning models, open the model and run it! and for machin
 
 You can also find and use all deep models in Deep_MODELS.py class, which can be used in other applications. 
 
-Requirements:
+# Papers:
+
+Bahrami, Mahsa, and Mohamad Forouzanfar. "Detection of sleep apnea from single-lead ecg: Comparison of deep learning algorithms." In 2021 IEEE International Symposium on Medical Measurements and Applications (MeMeA), pp. 1-5. IEEE, 2021.
+
+# Requirements:
 
 1-scikit-learn
 
@@ -29,11 +33,15 @@ Requirements:
 6-scipy
 
 
-References:
+# References:
 
 1- hrvanalysis package for feature extration: https://github.com/Aura-healthcare/hrv-analysis
 
 2- scikit-learn package for machine learning: Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011. https://scikit-learn.org/stable/
 
 3- keras for deep learning: https://keras.io/  
+
+
+
+
 
