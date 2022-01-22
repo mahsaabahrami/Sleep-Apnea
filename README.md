@@ -20,6 +20,10 @@ If this work is helpful in your research, please consider starring ⭐ us and ci
 
 Bahrami, Mahsa, and Mohamad Forouzanfar. "Detection of sleep apnea from single-lead ECG: Comparison of deep learning algorithms." In 2021 IEEE International Symposium on Medical Measurements and Applications (MeMeA), pp. 1-5. IEEE, 2021.
 
+This paper can be downloded at: https://ieeexplore.ieee.org/abstract/document/9478745
+
+
+
 # Requirements:
 
 1-scikit-learn
