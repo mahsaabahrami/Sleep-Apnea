@@ -64,7 +64,7 @@ def create_model():
   
     model.add(Flatten())
     
-    model.add(Dense(4, activation="relu"))
+    model.add(Dense(7, activation="relu"))
     model.add(Dense(2, activation="softmax")) 
     
     return model
