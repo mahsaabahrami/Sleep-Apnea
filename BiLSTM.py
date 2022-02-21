@@ -58,13 +58,15 @@ def load_data():
 # CREAT DEEP LEARNING MODEL
 def create_model():
     model=Sequential()
-    model.add(Bidirectional(LSTM(180, return_sequences=True), input_shape=(1,360)))
-    model.add(Bidirectional(LSTM(90, return_sequences=True)))
-    model.add(Bidirectional(LSTM(45, return_sequences=True)))    
-    
+    model.add(Bidirectional(LSTM(60, return_sequences=True), input_shape=(2,180)))
+    model.add(Bidirectional(LSTM(20, return_sequences=True)))
+    model.add(Bidirectional(LSTM(13, return_sequences=True))) 
+  
     model.add(Flatten())
-    model.add(Dense(7, activation="relu"))
+    model.add(Dense(4, activation="relu"))
     model.add(Dense(2, activation="softmax"))
+
+
     return model
 #---------------------------------------------------------------------------------------------------------
 # CREATE ADAPTIVE LEARNING RATE:
@@ -90,8 +92,10 @@ if __name__ == "__main__":
     SN=[]
     SP=[]
     F2=[]
-    X = np.concatenate((X[:,:180,0,:],X[:,:180,1,:]),axis=1)
+    X= np.reshape(X,(X.shape[0],90,2,2))
+    X = np.concatenate((X[:,:90,:,0],X[:,:90,:,1]),axis=1)
     X=X.transpose((0,2,1))
+    
     for train, test in kfold.split(X, Y.argmax(1)):
      model = create_model()
 
