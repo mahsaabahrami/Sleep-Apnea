@@ -16,11 +16,15 @@ You can also find and use all deep models in Deep_MODELS.py class, which can be 
 
 # Papers:
 
-If this work is helpful in your research, please consider starring ⭐ us and citing our conference paper which provides a comprehensive analysis of deep learning methods for sleep apnea detection:
+If this work is helpful in your research, please consider starring ⭐ us and citing our papers which provide a comprehensive analysis of deep learning and machine learning methods for sleep apnea detection:
 
-Bahrami, Mahsa, and Mohamad Forouzanfar. "Detection of sleep apnea from single-lead ECG: Comparison of deep learning algorithms." In 2021 IEEE International Symposium on Medical Measurements and Applications (MeMeA), pp. 1-5. IEEE, 2021.
+1- Bahrami, Mahsa, and Mohamad Forouzanfar. "Detection of sleep apnea from single-lead ECG: Comparison of deep learning algorithms." In 2021 IEEE International Symposium on Medical Measurements and Applications (MeMeA), pp. 1-5. IEEE, 2021.
 
 This paper can be downloded at: https://ieeexplore.ieee.org/abstract/document/9478745
+
+2- Bahrami, Mahsa, and Mohamad Forouzanfar. "Sleep Apnea Detection from Single-Lead ECG: A Comprehensive Analysis of Machine Learning and Deep Learning Algorithms." IEEE Transactions on Instrumentation and Measurement (2022).
+
+
 
 
 
