@@ -59,27 +59,28 @@ def load_data():
 def create_model(weight=1e-3):
 
     model= Sequential()
-    model.add(Conv2D(96, kernel_size=(7,1), strides=(1,1), padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Reshape((90,2,2),input_shape=(180,1,2)))
+    model.add(Conv2D(96, kernel_size=(7,1), strides=(1,1), padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight),input_shape=(180,1,2)))
     model.add(MaxPooling2D(pool_size=(3,1)))
     model.add(BatchNormalization())
-    model.add(Conv2D(256, kernel_size=(5,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(256, kernel_size=(5,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
     model.add(MaxPooling2D(pool_size=(3,1))) 
     model.add(BatchNormalization())
-    model.add(Conv2D(512, kernel_size=(3,1), strides=(1,1), padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(512, kernel_size=(3,1), strides=(1,1), padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(1024, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(1024, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
     model.add(MaxPooling2D(pool_size=(3,1),strides=(2,1)))
     model.add(Permute((2,1,3)))
-    model.add(Reshape((1,5*512))) 
+    model.add(Reshape((2,4*512))) 
 
-    model.add(GRU(365, return_sequences=True)) 
+    model.add(GRU(128, return_sequences=True)) 
     model.add(Flatten())
-    model.add(Dense(60, activation="relu"))
+    model.add(Dense(37, activation="relu"))
 
     model.add(Dense(2, activation="softmax"))
     return model
