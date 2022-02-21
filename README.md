@@ -8,7 +8,7 @@ And finally, differnet well-known deep learning methods were modified and used f
 
 Here, we used PhysioNet ECG Database which is available in: https://physionet.org/content/apnea-ecg/1.0.0/ 
 Firstly, we extracted R-R Intervals and R-peak amplitude and then fed to machine learning and deep learning methods.
-For running each deep learning models, open the model and run it! and for machine learning, firstly, run feature extraction.py and then run machine learning.py!
+
 
 
 
