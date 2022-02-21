@@ -59,42 +59,43 @@ def load_data():
 def create_model(weight=1e-3):
 
     model= Sequential()
-    model.add(Conv2D(64, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Reshape((90,2,2),input_shape=(180,1,2)))
+    model.add(Conv2D(64, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight),input_shape=(180,1,2)))
-    model.add(Conv2D(64, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(64, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
     model.add(MaxPooling2D(pool_size=(2,1)))
-    model.add(Conv2D(128, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(128, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(128, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
-                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(MaxPooling2D(pool_size=(2,1)))
-    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
-                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
-                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
-                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(128, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
     model.add(MaxPooling2D(pool_size=(2,1)))
-    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
-    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(256, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
     model.add(MaxPooling2D(pool_size=(2,1)))
-    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="valid", activation="relu", kernel_initializer="he_normal",
+    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
+                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
+    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
+                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
+    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
+                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
+    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
+                kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
+    model.add(MaxPooling2D(pool_size=(2,1)))
+    model.add(Conv2D(512, kernel_size=(3,1), strides=1, padding="same", activation="relu", kernel_initializer="he_normal",
                 kernel_regularizer=l2(weight), bias_regularizer=l2(weight)))
     model.add(Permute((2,1,3)))
-    model.add(Reshape((1,2*512))) 
+    model.add(Reshape((2,5*512))) 
 
-    model.add(LSTM(146, return_sequences=True)) 
+    model.add(LSTM(128, return_sequences=True))
     model.add(Flatten())
-    model.add(Dense(24, activation="relu"))
+    model.add(Dense(37, activation="relu"))
     model.add(Dense(2, activation="softmax"))
     return model
 
