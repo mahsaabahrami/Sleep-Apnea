@@ -31,8 +31,8 @@ from sklearn.gaussian_process import GaussianProcessClassifier
     
 feature_set = pd.read_csv(r'''D:\DATA_set.csv''')
 dataset=feature_set.values
-X = dataset[:,:30].astype('float32') # FEATURES
-Y= dataset[:,30].astype('float32')   # LABLES
+X = dataset[:,:27].astype('float32') # FEATURES
+Y= dataset[:,27].astype('float32')   # LABLES
 #------------------------------------------------------------------------------
 # CLF: CLASSIFIERS
 # WE IMPLIMENTED 14 MACHINE LEARNING METHODS
