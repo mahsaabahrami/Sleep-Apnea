@@ -1,4 +1,4 @@
-# Obstructive Sleep Apnea Detection from Single-Lead ECG: A Comprehensive Analysis of Machine Learning and Deep Learning Algorithms
+# Sleep Apnea Detection from Single-Lead ECG: A Comprehensive Analysis of Machine Learning and Deep Learning Algorithms
 In this project, we implemented a number of machine learning and deep learning methods for sleep apnea detection.
 Conventional machine learning methods have four main steps for sleep apnea detection: pre-processing, feature extraction, feature selection, and classification.
 After extracting R-peaks from ECG signal, we extracted time, frequency, and non-linear features of ECG signal. Principal component analysis then applied for dimension reduction.
@@ -12,8 +12,6 @@ For running each deep learning models, open the model and run it! and for machin
 
 
 
-You can also find and use all deep models in Deep_MODELS.py class, which can be used in other applications. 
-
 # Papers:
 
 If this work is helpful in your research, please consider starring ⭐ us and citing our papers which provide a comprehensive analysis of deep learning and machine learning methods for sleep apnea detection:
@@ -23,6 +21,8 @@ If this work is helpful in your research, please consider starring ⭐ us and ci
 This paper can be downloded at: https://ieeexplore.ieee.org/abstract/document/9478745
 
 2- Bahrami, Mahsa, and Mohamad Forouzanfar. "Sleep Apnea Detection from Single-Lead ECG: A Comprehensive Analysis of Machine Learning and Deep Learning Algorithms." IEEE Transactions on Instrumentation and Measurement (2022).
+
+This paper can be downloded at: https://ieeexplore.ieee.org/abstract/document/9714370
 
 
 
