@@ -93,9 +93,9 @@ def create_model(weight=1e-3):
     model.add(Permute((2,1,3)))
     model.add(Reshape((2,5*512))) 
 
-    model.add(LSTM(128, return_sequences=True))
+    model.add(LSTM(64, return_sequences=True))
     model.add(Flatten())
-    model.add(Dense(37, activation="relu"))
+    model.add(Dense(21, activation="relu"))
     model.add(Dense(2, activation="softmax"))
     return model
 
